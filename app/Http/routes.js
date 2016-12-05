@@ -19,6 +19,8 @@ const Route = use('Route');
 
 Route.post('/api/users', 'UserController.store');
 
+Route.resource('/api/profiles', 'ProfileController').except(['create', 'edit']);
+
 Route.resource('/api/users', 'UserController')
   .only(['index', 'show', 'update', 'destroy'])
   .middleware('auth');
